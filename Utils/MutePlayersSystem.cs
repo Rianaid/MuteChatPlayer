@@ -52,9 +52,9 @@ namespace MuteChatPlayer.Utils
         void Start()
         {
             Load_Mute_List();
-            StartCoroutine(UpdateDurabilityInSpecialStorage().WrapToIl2Cpp());
+            StartCoroutine(UpdateMuteList().WrapToIl2Cpp());
         }
-        private IEnumerator UpdateDurabilityInSpecialStorage()
+        private IEnumerator UpdateMuteList()
         {
             while (true)
             {
