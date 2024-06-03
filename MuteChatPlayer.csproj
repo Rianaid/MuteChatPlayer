@@ -1,0 +1,33 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <AssemblyName>MuteChatPlayer</AssemblyName>
+    <Description>Block players from sending messages</Description>
+    <Version>0.1.0</Version>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <LangVersion>latest</LangVersion>
+    <RootNamespace>MuteChatPlayer</RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Remove="Thunderstore\**" />
+    <EmbeddedResource Remove="Thunderstore\**" />
+    <None Remove="Thunderstore\**" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="BepInEx.Unity.IL2CPP" Version="6.0.0-be.691" IncludeAssets="compile" />
+    <PackageReference Include="BepInEx.Core" Version="6.0.0-be.691" IncludeAssets="compile" />
+    <PackageReference Include="BepInEx.PluginInfoProps" Version="2.*" />
+    <PackageReference Include="VRising.Unhollowed.Client" Version="1.0.5.802790001" />
+    <PackageReference Include="VRising.VampireCommandFramework" Version="0.9.*" />
+  </ItemGroup>
+  <Target Name="CopyDLLs" AfterTargets="Build">
+    <Message Text="DLL to V Rising Server" Importance="High" />
+    <Copy SourceFiles="$(TargetDir)$(ProjectName).dll" DestinationFolder="E:\SteamLibrary\steamapps\common\VRisingDedicatedServer\BepInEx\plugins" />
+    <Message Text="DLL to Thunderstore pack" Importance="High" />
+    <Copy SourceFiles="$(TargetDir)$(ProjectName).dll" DestinationFolder="D:\Source\repos\MuteChatPlayer\Thunderstore\$(Version)" />
+    <Copy SourceFiles="icon.png" DestinationFolder="D:\Source\repos\MuteChatPlayer\Thunderstore\$(Version)" />
+    <Copy SourceFiles="manifest.json" DestinationFolder="D:\Source\repos\MuteChatPlayer\Thunderstore\$(Version)" />
+    <Copy SourceFiles="README.md" DestinationFolder="D:\Source\repos\MuteChatPlayer\Thunderstore\$(Version)" />
+    <Message Text="DLL Copied OK" Importance="High" />
+  </Target>
+</Project>

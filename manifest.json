@@ -1,0 +1,10 @@
+{
+  "name": "MuteChatPlayer",
+  "version_number": "0.1.0",
+  "website_url": "https://github.com/Rianaid/MuteChatPlayer",
+  "description": "Server side only mod which allows server admins to prohibit a specific player from sending messages to the chat.",
+  "dependencies": [
+    "BepInEx-BepInExPack_V_Rising-1.691.3",
+    "deca-VampireCommandFramework-0.9.0"
+  ]
+}
